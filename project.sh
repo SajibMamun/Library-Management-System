@@ -101,6 +101,20 @@ echo -e "\n"
 ;;
 
 
+5) echo "Enter Id number of author"
+read id
+ echo  -e "ID \t Name \t Book Name \t Book ID \t Contact \t Mail \t Address"
+ grep ^$id lib
+ echo -e "\n"
+ ;;
+ 
+ 6) ;;
+ * ) echo "Enter Right Choice"
+ esac
+ done
+
+
+
 
 
 
