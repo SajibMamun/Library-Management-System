@@ -1,12 +1,11 @@
 #! /bin/bash
 echo -e " ------------------------------------------- "
-echo -e " 	   Library Management System	      "
-echo -e "		**************                "
-echo -e "	      Powered By Team Quad            "
+echo -e " 	   Library Management System	            "
+echo -e "	   	**************                      "
+echo -e "	    Powered By Team Quad                  "
 echo -e " ------------------------------------------- "
 
-t=100
-while [ $t -ne 0 ]
+while [ "$done" != "true" ]
 do
 
 
@@ -22,7 +21,7 @@ read  ch
 case $ch in
 
 1) echo -e "Show All List\n"
-   echo  -e "ID \t Name \t Book Name \t Book ID \t Contact \t Mail \t Address"
+   echo  -e "ID \t Name \t Book Name \t Book ID \t Issue Date \t Contact \t Mail \t Address"
 cat lib
 echo -e "\n";;
 
@@ -87,17 +86,17 @@ read ad
 
 echo -e "Modifiy  Complete Record\n"
 record="$id $mn $bk $bi $idt $cn $em $ad "
-var='grep -n ^$id1 lib | cut -c 1'
+var='grep -n ^ $id1 lib | cut -c 1'
 echo $var
-var1='expr $var -1'
+var1='expr $var - 1'
 head -$var1 lib>temp
 echo $record>>temp
 var3='wc -1 < lib'
-var2='expr $var3 - $var'
+var2='expr $var3 - $var '
 tail -$var2 lib>>temp
 cp temp lib
 fi
-echo -e "\n"
+echo -e  "\n"
 ;;
 
 
@@ -108,13 +107,13 @@ read id
  echo -e "\n"
  ;;
  
- 6) ;;
+ 6)
+done="true"
+ ;;
  * ) echo "Enter Right Choice"
  esac
- done
-
-
-
+done
+ 
 
 
 
